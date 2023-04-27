@@ -15,7 +15,7 @@ intent("money is $(MONEY)", p=>{
 
 intent("send",p => {
     p.play({command: "forward"});
-    p.play('sending the Money');
+    p.play('checking the phone number and amount money');
 });
 
 //current last acction with transfared money 
@@ -26,4 +26,6 @@ intent('last action',p =>{
 //diologBox that checking phone number and current money
 intent("yes",p=>{
     p.play({command: "forward"});
+    p.play("sending the money")
 });
+
