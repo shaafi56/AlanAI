@@ -3,14 +3,14 @@
 
 // Use this sample to create your own voice commands
 const phoneNumber = "\\d{3}-\\d{3}-\\d{4}$"
-intent('phone is $(Phone* ${phoneNumber})', p => {
+intent(`number $(PHONE* ${phoneNumber})`, p => {
     p.play({command: "getphone", text: p.PHONE.value});
-    p.play('phone number is ${p.PHONE.value}');
+    p.play(`phone number is ${p.PHONE.value}`);
 });
 
-intent("money is $(MONEY)", p=>{
-    p.play({command: "getmoney", text:p.MONEY.value});
-    p.play('amount money is $${p.MONEY.value}');
+intent("money is $(NUMBER)", p=>{
+    p.play({command: "getmoney", text:p.NUMBER.value});
+    p.play(`amount money is $${p.NUMBER.value}`);
 });
 
 intent("send",p => {
@@ -25,7 +25,7 @@ intent('last action',p =>{
 
 //diologBox that checking phone number and current money
 intent("yes",p=>{
-    p.play({command: "forward"});
+    p.play({command: "goforward"});
     p.play("sending the money")
 });
 
