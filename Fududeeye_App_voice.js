@@ -5,12 +5,12 @@
 const phoneNumber = "\\d{3}-\\d{3}-\\d{4}$"
 intent(`number $(PHONE* ${phoneNumber})`, p => {
     p.play({command: "getphone", text: p.PHONE.value});
-    p.play(`phone number is ${p.PHONE.value}`);
+    p.play(`number ${p.PHONE.value}`);
 });
 
-intent("money is $(NUMBER)", p=>{
+intent("money $(NUMBER)", p=>{
     p.play({command: "getmoney", text:p.NUMBER.value});
-    p.play(`amount money is $${p.NUMBER.value}`);
+    p.play(`money is $${p.NUMBER.value}`);
 });
 
 intent("send",p => {
@@ -27,5 +27,15 @@ intent('last action',p =>{
 intent("yes",p=>{
     p.play({command: "goforward"});
     p.play("sending the money")
+});
+
+intent("no",p=>{
+    p.play({command: "back"});
+    p.play("back")
+});
+
+intent("information",p =>{
+        p.play({comand: "pageTwo"});
+        p.play("EVCplus information")
 });
 
